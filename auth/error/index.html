@@ -1,0 +1,18 @@
+<head>
+    <link rel="shortcut icon" href="../../shc/purpleone.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../styles.css">
+    <title>Error</title>
+    <script>
+        window.onload = function() {
+            const erros = JSON.parse(localStorage.getItem('erros'));
+            document.getElementById('erros').innerHTML = erros.join("<br>");
+        };
+    </script>
+</head>
+<body>
+    <div class="centered" style="text-align: left;">
+    <h1>UNSAFE TO PROCEED</h1>
+    <p>Your browser is not safe enough to proceed, here's why:</p>
+    <div id="erros"></div>
+</body>
+</html>

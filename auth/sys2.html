@@ -1,0 +1,45 @@
+<head>
+    <title>AUTH</title>
+    <link rel="shortcut icon" href="../shc/purpleone.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="centered">
+        <div class="icon-special" id="icon"></div>
+    <h1>auth (2/3)</h1>
+    <h3>wait until we finish safety tests</h3>
+</div>
+    <script>
+        function ts() {
+            let seguro = true;
+            let erros = [];
+
+            if (window.location.protocol !== "https:") {
+                seguro = false;
+                erros.push("<b>protocol not safe (HTTPS).</b>");
+            }
+
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+            } catch (e) {
+                seguro = false;
+                erros.push("<b>javascript disabled or localstorage disabled.</b>");
+            }
+
+            if (seguro) {
+
+                window.location.href = "sys3";
+            } else {
+                localStorage.setItem('erros', JSON.stringify(erros));
+                window.location.href = "error/";
+            }
+        }
+
+        window.onload = function() {
+           ts();
+        };
+    </script>
+    <script src="vari.js"></script>
+</body>
+</html>
